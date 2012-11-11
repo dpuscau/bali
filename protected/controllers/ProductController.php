@@ -8,8 +8,7 @@ class ProductController extends Controller
 	/**
 	 * Declares class-based actions.
 	 */
-	public function actions()
-	{
+	public function actions() {
 		return array(
 			// captcha action renders the CAPTCHA image displayed on the contact page
 			'captcha'=>array(
@@ -28,8 +27,8 @@ class ProductController extends Controller
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
-	public function actionIndex()
-	{
+	public function actionIndex() {
+		
 		$product = Product::model()->findByPk(1);
 		$this->name = $product->name; 
 		$this->category = $product->category;
@@ -40,10 +39,9 @@ class ProductController extends Controller
 	/**
 	 * This is the action to handle external exceptions.
 	 */
-	public function actionError()
-	{
-		if($error=Yii::app()->errorHandler->error)
-		{
+	public function actionError() {
+		
+		if($error=Yii::app()->errorHandler->error) {
 			if(Yii::app()->request->isAjaxRequest)
 				echo $error['message'];
 			else
